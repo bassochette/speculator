@@ -1,0 +1,77 @@
+<head>
+    <title>Dofus Intelligence</title>
+</head>
+
+<body>
+<div class="container-fluid">
+<h1>Dofus Intel</h1>
+
+    <div class="row">
+        <div class="col-sm-12">
+            {{> inputAutocomplete settings=settings id="itemSelected" class="input-xlarge" placeholder="Objet"}}
+            <button class="btn btn-success" id="newItem" ><i class="fa fa-plus"></i></button>
+        </div>
+    </div>
+    {{#if displayNewItemForm }}
+    <div class="row">
+        <div class="col-sm-12">
+            <input id="search" type="text" class="form-control">
+            <select class="form-control" id="newItemCategory">
+                <option value="conso">Consommable</option>
+                <option value="resource">Resource</option>
+                <option value="equipement">Equipement</option>
+            </select>
+
+            <input type="text" id="newItemLevel" placeholder="level">
+
+            <button id="createItem" class="btn btn-success">
+                <i class="fa fa-floppy-o"></i>
+            </button>
+        </div>
+    </div>
+        {{/if}}
+    <div class="row">
+        <div class="col-sm-4">
+            <select name="sample-qt" id="sampleQt">
+                <option value="100">100</option>
+                <option value="10">10</option>
+                <option value="1">1</option>
+            </select>
+            <input id="sampleKama" type="text" placeholder="kama">
+            <button class="btn btn-primary" id="addSample"><i class="fa fa-jpy">
+
+            </i></button>
+        </div>
+    </div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Objet</th>
+            <th>Quantité</th>
+            <th>Prix</th>
+            <th>Stamp</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each samples}}
+            <tr>
+                <td>{{objet}}</td>
+                <td>{{qt}}</td>
+                <td>{{prix}}</td>
+                <td>{{stamp}}</td>
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
+
+</div>
+
+
+</body>
+<template name="nomObjet">
+    {{nom}}
+</template>
+
+
+
+
